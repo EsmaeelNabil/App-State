@@ -22,7 +22,7 @@ dependencies {
 ```
 ## Usage - Features
 
-##### Network State Handler
+##### [Network State Handler](https://github.com/EsmaeelNabil/App-State/blob/master/stateLib/src/main/java/com/esmaeel/statelib/NetworkStateHandler.kt)
 ``` kotlin
 class AppClass : Application() {
    
@@ -35,7 +35,7 @@ class AppClass : Application() {
     }
 }
 ```
-###### Unregistering the callback.
+###### Unregistering the callback
  - if `initNetworkStateHandler` already initialized the callback,
  - the initialized callback will be returned and no overriding will take place.
 ``` kotlin
@@ -47,7 +47,7 @@ class AppClass : Application() {
 `val hasInternet = appHasNetwork`
 
 
-##### Activity Provider , Listener
+##### [Activity Provider , Listener](https://github.com/EsmaeelNabil/App-State/blob/master/stateLib/src/main/java/com/esmaeel/statelib/ActivityProvider.kt)
 ``` kotlin
 class AppClass : Application() {
    
