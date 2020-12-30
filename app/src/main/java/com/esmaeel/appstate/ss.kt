@@ -4,16 +4,16 @@ import android.app.Application
 import com.esmaeel.statelib.initNetworkStateHandler
 import com.esmaeel.statelib.registerActivityTracker
 
-class AppInstance : Application() {
+class AppClass : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        //---------------------------- current Activity tracker ---------------------//
-        registerActivityTracker()
-
-        //---------------------------- NetworkState ---------------------//
         initNetworkStateHandler()
 
+        registerActivityTracker()
     }
 }
+
+
+
