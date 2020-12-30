@@ -2,6 +2,9 @@
 
 **Network and Activity State Providers**
 
+- Network State      : get the current state from anywhere without ~~Context~~  using a global variable `appHasNetwork`.
+- Actvivty Provider  : get the current Actvivty with a global variable `currentActivity` 
+
 ## Including in your project
 [![](https://jitpack.io/v/EsmaeelNabil/App-State.svg)](https://jitpack.io/#EsmaeelNabil/App-State)
 ### Gradle 
