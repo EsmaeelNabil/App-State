@@ -69,17 +69,6 @@ var appHasNetwork: Boolean = false
                           
                     """
             )
-//            Log.e(
-//                TAG, """
-//
-//                    Caused by:
-//                        You should call initNetworkStateHandler()
-//                        inside the Application class in order to access this value globally.
-//                        Also you must not access this value in Application Class's onCreate,
-//                        as it won't be accessible until the register starts and the value gets updated.
-//
-//                    """
-//            )
         return field
     }
 
