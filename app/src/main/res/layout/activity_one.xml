@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="#F1F1F1"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ActivityOne">
 
@@ -41,5 +41,6 @@
         android:text="change activity"
         android:textAllCaps="false"
         android:textColor="@color/white" />
+
 
 </LinearLayout>
