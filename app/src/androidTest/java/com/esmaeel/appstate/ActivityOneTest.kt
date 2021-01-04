@@ -3,7 +3,6 @@ package com.esmaeel.appstate
 import android.Manifest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.rule.GrantPermissionRule
-import com.esmaeel.statelib.initNetworkStateHandler
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
@@ -61,8 +60,11 @@ class ActivityOneTest : TestCase() {
                 step("turn wifi off and make sure network state equals false while wifi is off") {
                     device.network.toggleWiFi(false)
                     nextButton.click()
-                    currentNetworkStateTextView.click()
-                    currentNetworkStateTextView.containsText("false")
+
+                    flakySafely(timeoutMs = 2000) {
+                        currentNetworkStateTextView.click()
+                        currentNetworkStateTextView.containsText("false")
+                    }
                 }
 
             }

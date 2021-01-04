@@ -136,7 +136,9 @@ class ActivityTwoTest : TestCase() {
             activityOneScreen {
 
                 step("check for the current statue variable to be false") {
-                    assertFalse(appHasNetwork)
+                    flakySafely(timeoutMs = 16_000) {
+                        assertFalse(appHasNetwork)
+                    }
                 }
 
                 step("click on the network state textView to update the current status") {
@@ -144,7 +146,9 @@ class ActivityTwoTest : TestCase() {
                 }
 
                 step("check for the current status to be false") {
-                    currentNetworkStateTextView.containsText("false")
+                    flakySafely(timeoutMs = 16_000) {
+                        currentNetworkStateTextView.containsText("false")
+                    }
                 }
 
 
@@ -152,19 +156,23 @@ class ActivityTwoTest : TestCase() {
                 step("Move to another activity with wifi enabled") {
 
                     step("enable wifi") {
+                        goto(ActivityTwo::class.java)
                         device.network.toggleWiFi(true)
                     }
 
-                    step("moving to activityTwo") {
-                        goto(ActivityTwo::class.java)
-                    }
 
                     step("check for the current statue variable to be true") {
-                        assertTrue(appHasNetwork)
+                        flakySafely(timeoutMs = 16_000) {
+                            currentNetworkStateTextView.click()
+                            assertTrue(appHasNetwork)
+                        }
                     }
 
                     step("check for the current statue to be true") {
-                        currentNetworkStateTextView.containsText("true")
+                        flakySafely(timeoutMs = 16_000) {
+                            currentNetworkStateTextView.click()
+                            currentNetworkStateTextView.containsText("true")
+                        }
                     }
 
                 }
