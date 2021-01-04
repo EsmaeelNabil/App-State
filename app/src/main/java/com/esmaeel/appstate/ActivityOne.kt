@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.esmaeel.appstate.databinding.ActivityOneBinding
 import com.esmaeel.statelib.appHasNetwork
 import com.esmaeel.statelib.currentActivity
-import com.esmaeel.statelib.hasInternet
 
 class ActivityOne : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,15 +13,12 @@ class ActivityOne : AppCompatActivity() {
         with(ActivityOneBinding.inflate(layoutInflater)) {
             setContentView(this.root)
 
-            currentActivityText.text = "Current Activity : $currentActivity"
-            currentActivityText.setOnClickListener {
-                currentActivityText.text = currentActivity?.localClassName
-            }
+            currentActivityText.text = "${currentActivity?.componentName?.className}"
 
-            currentNetworkState.text = "App Has Network : $appHasNetwork"
 
+            currentNetworkState.text = "$appHasNetwork"
             currentNetworkState.setOnClickListener {
-                currentNetworkState.text = "App Has Network : $appHasNetwork"
+                currentNetworkState.text = "$appHasNetwork"
             }
 
             nextButton.setOnClickListener {
