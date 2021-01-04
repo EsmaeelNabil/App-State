@@ -10,6 +10,7 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.provider.Settings
 import android.telephony.TelephonyManager
+import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import com.esmaeel.appstate.SafeAssert.assertFalseSafely
 import com.esmaeel.appstate.SafeAssert.assertTrueSafely
@@ -112,6 +113,6 @@ object SafeAssert {
     }
 }
 
-fun <T : Activity> goto(to: Class<T>) {
-    val activityScenario = ActivityScenario.launch(to)
+fun <T : Activity> goto(to: Class<T>): ActivityScenario<T> {
+    return ActivityScenario.launch(to)
 }

@@ -3,6 +3,7 @@ package com.esmaeel.appstate
 import android.Manifest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.rule.GrantPermissionRule
+import com.esmaeel.statelib.initNetworkStateHandler
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
@@ -44,25 +45,28 @@ class ActivityOneTest : TestCase() {
 
     @Test
     fun make_sure_app_has_network_gets_updated() =
-        before { device.network.enable() }.after { }.run {
+        before {
+            device.network.toggleWiFi(true)
+        }.after {
+            device.network.toggleWiFi(true)
+        }.run {
 
             activityOneScreen {
 
-//                step("turn on wifi") {
-//                    device.network.enable()
-//                }
-
-                step("make sure network state equals true while wifi is on") {
+                step("wifi is turned on so we make sure the value is true") {
+                    currentNetworkStateTextView.click()
                     currentNetworkStateTextView.containsText("true")
                 }
 
-                step("turn off wifi") {
-                    device.network.disable()
-                }
-
-                step("make sure network state equals false while wifi is off") {
+                step("turn wifi off and make sure network state equals false while wifi is off") {
+                    device.network.toggleWiFi(false)
+                    nextButton.click()
+                    currentNetworkStateTextView.click()
                     currentNetworkStateTextView.containsText("false")
                 }
+
             }
         }
+
+
 }

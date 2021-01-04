@@ -5,7 +5,7 @@ import com.agoda.kakao.text.KButton
 import com.agoda.kakao.text.KTextView
 
 class ActivityTwoScreen : Screen<ActivityTwoScreen>() {
-    val currentActivityTextView = KTextView { withId(R.id.currentActivityText) }
-    val currentNetworkStateTextView = KTextView { withId(R.id.currentNetworkState) }
     val previousButton = KButton { withId(R.id.previousButton) }
+    val networkStateText = KTextView { withId(R.id.currentNetworkState) }
+    val currentActivityText = KTextView { withId(R.id.currentActivityText) }
 }
